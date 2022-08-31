@@ -2,7 +2,6 @@ pipeline{
 
     agent any
 
-// uncomment the following lines by removing /* and */ to enable
  tools{
        maven ‘maven’ 
     }
@@ -11,7 +10,7 @@ pipeline{
         stage(‘compile-app’){
             steps{
                 echo 'this is the compile job'
-                sh ’mvn compile’
+                sh  'mvn compile’
              
             }
         }
@@ -25,7 +24,7 @@ pipeline{
         stage(‘package-app’){
             steps{
                 echo 'this is the package job'
-                sh ’mvn  package’
+                sh ’mvn package’
                 
             }
         }
