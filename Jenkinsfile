@@ -2,39 +2,39 @@ pipeline{
 
     agent any
 
- tools{
-       maven ‘maven’ 
+// uncomment the following lines by removing /* and */ to enable
+    tools{
+       maven 'maven' 
     }
+   
 
     stages{
-        stage(‘compile-app’){
+        stage('compile-app'){
             steps{
-                echo 'this is the compile job'
-                sh  'mvn compile’
-             
+                echo 'this is the build job'
+                sh 'mvn compile'
             }
         }
-        stage(‘test-app’){
+        stage('test-app'){
             steps{
                 echo 'this is the test job'
-                sh ’mvn test’
-                
+                sh 'mvn clean test'
             }
         }
-        stage(‘package-app’){
+        stage('package-app'){
             steps{
                 echo 'this is the package job'
-                sh ’mvn package’
-                
+                sh 'mvn package'
             }
         }
     }
     
     post{
         always{
-            echo 'this shopping cart pipeline has completed...'
+            echo 'this carts pipeline has completed...'
         }
         
     }
-    
+  }
+
 }
